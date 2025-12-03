@@ -11,13 +11,13 @@ execute store result score #current_rot npc.temp run data get entity @s Rotation
 scoreboard players operation #diff npc.temp = #current_rot npc.temp
 scoreboard players operation #diff npc.temp -= @s npc.temp
 
-# Проверка поворота влево (A) - разница < -5
-execute if score #diff npc.temp matches ..-5 run function npcs:dialog/choice/move_left
-execute if score #diff npc.temp matches ..-5 run scoreboard players operation @s npc.temp = #current_rot npc.temp
+# Проверка поворота влево (A) - разница < -10
+execute if score #diff npc.temp matches ..-10 run function npcs:dialog/choice/move_left
+execute if score #diff npc.temp matches ..-10 run scoreboard players operation @s npc.temp = #current_rot npc.temp
 
-# Проверка поворота вправо (D) - разница > 5
-execute if score #diff npc.temp matches 5.. run function npcs:dialog/choice/move_right
-execute if score #diff npc.temp matches 5.. run scoreboard players operation @s npc.temp = #current_rot npc.temp
+# Проверка поворота вправо (D) - разница > 10
+execute if score #diff npc.temp matches 10.. run function npcs:dialog/choice/move_right
+execute if score #diff npc.temp matches 10.. run scoreboard players operation @s npc.temp = #current_rot npc.temp
 
 # Проверка нажатия пробела (прыжок) - подтверждение выбора
 execute if score @s npc.jump matches 1.. run function npcs:dialog/choice/confirm

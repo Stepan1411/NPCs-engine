@@ -28,7 +28,7 @@ scoreboard objectives add npc.move_right minecraft.custom:minecraft.walk_one_cm
 scoreboard objectives add npc.jump minecraft.custom:minecraft.jump
 
 # Создание bossbar для редактора
-bossbar add npcs:editor {"text":"NPC Editor","color":"aqua"}
+bossbar add npcs:editor {"text":"NPC Editor","color":"gold"}
 bossbar set npcs:editor color blue
 bossbar set npcs:editor style notched_10
 bossbar set npcs:editor max 100
@@ -44,5 +44,10 @@ scoreboard players set #2 npc.temp 2
 scoreboard players set #20 npc.temp 20
 scoreboard players set #100 npc.temp 100
 
-# Сообщение об успешной загрузке
-tellraw @a [{"text":"[NPC Engine] ","color":"aqua","bold":true},{"text":"Система загружена!","color":"green"}]
+# Инициализация системы локализации
+function npcs:localization/init
+
+
+# Сообщение об успешной загрузке (локализованное)
+execute if score localization l matches 1 run tellraw @a [{"text":"[NPC Engine] ","color":"gold","bold":true},{"text":"Система загружена!","color":"green"}]
+execute if score localization l matches 2 run tellraw @a [{"text":"[NPC Engine] ","color":"gold","bold":true},{"text":"System loaded!","color":"green"}]

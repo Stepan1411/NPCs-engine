@@ -9,23 +9,16 @@ execute store result storage npcs:temp editor.pos.x double 1 run data get entity
 execute store result storage npcs:temp editor.pos.y double 1 run data get entity @s Pos[1]
 execute store result storage npcs:temp editor.pos.z double 1 run data get entity @s Pos[2]
 
-# Выдача инструментов для управления (9 удочек для всех слотов)
-clear @s carrot_on_a_stick
-item replace entity @s hotbar.0 with carrot_on_a_stick[custom_name='{"text":"NPC Editor Tool","color":"aqua","italic":false}',lore=['{"text":"Колесико мыши - навигация","color":"gray","italic":false}','{"text":"ПКМ - выбор","color":"gray","italic":false}']]
-item replace entity @s hotbar.1 with carrot_on_a_stick[custom_name='{"text":"NPC Editor Tool","color":"aqua","italic":false}',lore=['{"text":"Колесико мыши - навигация","color":"gray","italic":false}','{"text":"ПКМ - выбор","color":"gray","italic":false}']]
-item replace entity @s hotbar.2 with carrot_on_a_stick[custom_name='{"text":"NPC Editor Tool","color":"aqua","italic":false}',lore=['{"text":"Колесико мыши - навигация","color":"gray","italic":false}','{"text":"ПКМ - выбор","color":"gray","italic":false}']]
-item replace entity @s hotbar.3 with carrot_on_a_stick[custom_name='{"text":"NPC Editor Tool","color":"aqua","italic":false}',lore=['{"text":"Колесико мыши - навигация","color":"gray","italic":false}','{"text":"ПКМ - выбор","color":"gray","italic":false}']]
-item replace entity @s hotbar.4 with carrot_on_a_stick[custom_name='{"text":"NPC Editor Tool","color":"aqua","italic":false}',lore=['{"text":"Колесико мыши - навигация","color":"gray","italic":false}','{"text":"ПКМ - выбор","color":"gray","italic":false}']]
-item replace entity @s hotbar.5 with carrot_on_a_stick[custom_name='{"text":"NPC Editor Tool","color":"aqua","italic":false}',lore=['{"text":"Колесико мыши - навигация","color":"gray","italic":false}','{"text":"ПКМ - выбор","color":"gray","italic":false}']]
-item replace entity @s hotbar.6 with carrot_on_a_stick[custom_name='{"text":"NPC Editor Tool","color":"aqua","italic":false}',lore=['{"text":"Колесико мыши - навигация","color":"gray","italic":false}','{"text":"ПКМ - выбор","color":"gray","italic":false}']]
-item replace entity @s hotbar.7 with carrot_on_a_stick[custom_name='{"text":"NPC Editor Tool","color":"aqua","italic":false}',lore=['{"text":"Колесико мыши - навигация","color":"gray","italic":false}','{"text":"ПКМ - выбор","color":"gray","italic":false}']]
-item replace entity @s hotbar.8 with carrot_on_a_stick[custom_name='{"text":"NPC Editor Tool","color":"aqua","italic":false}',lore=['{"text":"Колесико мыши - навигация","color":"gray","italic":false}','{"text":"ПКМ - выбор","color":"gray","italic":false}']]
+# Выдача инструментов для управления (локализованная)
+function npcs:editor/give_tools
 
 # Установка bossbar
 bossbar set npcs:editor players @s
 bossbar set npcs:editor value 0
 
 tellraw @s ""
-tellraw @s [{"text":"[NPC Editor] ","color":"aqua","bold":true},{"text":"Редактор открыт!","color":"green"}]
-tellraw @s [{"text":"Используйте колесико мыши для навигации и ПКМ для выбора","color":"gray"}]
+execute if score localization l matches 1 run tellraw @s [{"text":"[NPC Editor] ","color":"aqua","bold":true},{"text":"Редактор открыт!","color":"green"}]
+execute if score localization l matches 1 run tellraw @s [{"text":"Используйте колесико мыши для навигации и ПКМ для выбора","color":"gray"}]
+execute if score localization l matches 2 run tellraw @s [{"text":"[NPC Editor] ","color":"aqua","bold":true},{"text":"Editor opened!","color":"green"}]
+execute if score localization l matches 2 run tellraw @s [{"text":"Use mouse wheel to navigate and RMB to select","color":"gray"}]
 tellraw @s ""

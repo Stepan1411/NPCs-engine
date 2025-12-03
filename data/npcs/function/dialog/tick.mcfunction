@@ -1,7 +1,7 @@
 # Обновление диалога
 
 # Телепортировать игрока в маркер камеры и смотреть на text_display
-execute if score @s npc.dialog_state matches 1.. at @e[type=minecraft:marker,tag=npc.camera,limit=1,sort=nearest] run tp @s ~ ~ ~ 
+# execute if score @s npc.dialog_state matches 1.. at @e[type=minecraft:marker,tag=npc.camera,limit=1,sort=nearest] run tp @s ~ ~ ~ 
 
 # Обновление позиции text_display
 function npcs:dialog/update_text_position

@@ -14,7 +14,8 @@ function npcs:dialog/load_dialog_for_play
 
 # Проверка что есть диалоги
 execute store result score #total npc.temp if data storage npcs:current_dialog lines[]
-execute if score #total npc.temp matches 0 run tellraw @s [{"text":"[NPC] ","color":"aqua"},{"text":"У этого NPC нет диалогов","color":"gray"}]
+execute if score #total npc.temp matches 0 if score localization l matches 1 run tellraw @s [{"text":"[NPC] ","color":"aqua"},{"text":"У этого NPC нет диалогов","color":"gray"}]
+execute if score #total npc.temp matches 0 if score localization l matches 2 run tellraw @s [{"text":"[NPC] ","color":"aqua"},{"text":"This NPC has no dialogs","color":"gray"}]
 execute if score #total npc.temp matches 0 run return 0
 
 # Запуск диалога

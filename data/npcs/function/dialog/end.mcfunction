@@ -18,4 +18,5 @@ title @s reset
 # Звук завершения
 playsound minecraft:entity.experience_orb.pickup master @s ~ ~ ~ 1 1
 
-tellraw @s [{"text":"[NPC] ","color":"aqua"},{"text":"Диалог завершен","color":"gray"}]
+execute if score localization l matches 1 run tellraw @s [{"text":"[NPC] ","color":"aqua"},{"text":"Диалог завершен","color":"gray"}]
+execute if score localization l matches 2 run tellraw @s [{"text":"[NPC] ","color":"aqua"},{"text":"Dialog ended","color":"gray"}]

@@ -10,4 +10,5 @@ bossbar set npcs:editor players
 # Удаление всех инструментов
 clear @s carrot_on_a_stick
 
-tellraw @s [{"text":"[NPC Editor] ","color":"aqua","bold":true},{"text":"Редактор закрыт","color":"yellow"}]
+execute if score localization l matches 1 run tellraw @s [{"text":"[NPC Editor] ","color":"aqua","bold":true},{"text":"Редактор закрыт","color":"yellow"}]
+execute if score localization l matches 2 run tellraw @s [{"text":"[NPC Editor] ","color":"aqua","bold":true},{"text":"Editor closed","color":"yellow"}]

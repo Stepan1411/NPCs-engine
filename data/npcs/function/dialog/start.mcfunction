@@ -14,4 +14,5 @@ execute as @e[type=minecraft:mannequin,tag=npc.mannequin,limit=1,sort=nearest] a
 # Эффект начала диалога
 playsound minecraft:block.note_block.chime master @s ~ ~ ~ 1 1.5
 
-tellraw @s [{"text":"[NPC] ","color":"aqua"},{"text":"Диалог начат. Нажимайте Shift для продолжения.","color":"gray"}]
+execute if score localization l matches 1 run tellraw @s [{"text":"[NPC] ","color":"aqua"},{"text":"Диалог начат. Нажимайте Shift для продолжения.","color":"gray"}]
+execute if score localization l matches 2 run tellraw @s [{"text":"[NPC] ","color":"aqua"},{"text":"Dialog started. Press Shift to continue.","color":"gray"}]

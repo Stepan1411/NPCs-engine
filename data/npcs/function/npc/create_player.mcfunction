@@ -21,4 +21,5 @@ execute as @e[type=marker,tag=npc.new,limit=1] run function npcs:npc/setup_playe
 scoreboard players add #next_id npc.temp 1
 execute store result storage npcs:data next_npc_id int 1 run scoreboard players get #next_id npc.temp
 
-tellraw @s [{"text":"[NPC Editor] ","color":"aqua","bold":true},{"text":"NPC-манекен создан!","color":"green"}]
+execute if score localization l matches 1 run tellraw @s [{"text":"[NPC Editor] ","color":"aqua","bold":true},{"text":"NPC-манекен создан!","color":"green"}]
+execute if score localization l matches 2 run tellraw @s [{"text":"[NPC Editor] ","color":"aqua","bold":true},{"text":"NPC mannequin created!","color":"green"}]

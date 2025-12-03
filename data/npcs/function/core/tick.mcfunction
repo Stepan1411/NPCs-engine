@@ -1,5 +1,9 @@
 # NPC Engine Tick
 
+# Обработка смены языка через trigger
+execute as @a[scores={npcs_engine_localization=1}] run function npcs:localization/set_russian
+execute as @a[scores={npcs_engine_localization=2}] run function npcs:localization/set_english
+
 # Обновление редактора
 execute as @a[scores={npc.editor=1..}] at @s run function npcs:editor/tick
 

@@ -1,0 +1,1 @@
+function npcs:editor/open

@@ -14,4 +14,5 @@ scoreboard players set @s npc.dialog_line 0
 # Запуск первой строки
 function npcs:dialog/show_next_line
 
-tellraw @s [{"text":"[NPC] ","color":"aqua"},{"text":"Диалог начат. Нажимайте Shift для продолжения.","color":"gray"}]
+execute if score localization l matches 1 run tellraw @s [{"text":"[NPC] ","color":"aqua"},{"text":"Диалог начат. Нажимайте Shift для продолжения.","color":"gray"}]
+execute if score localization l matches 2 run tellraw @s [{"text":"[NPC] ","color":"aqua"},{"text":"Dialog started. Press Shift to continue.","color":"gray"}]

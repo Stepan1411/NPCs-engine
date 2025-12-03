@@ -13,7 +13,8 @@ $execute at @p run tp @e[type=minecraft:mannequin,tag=npc.mannequin,scores={npc.
 # Переместить interaction
 $execute at @p run tp @e[type=interaction,tag=npc.interaction,scores={npc.id=$(npc_id)}] ~ ~ ~
 
-$tellraw @s [{"text":"[NPC Editor] ","color":"aqua"},{"text":"NPC #$(npc_id) перемещён","color":"green"}]
+$execute if score localization l matches 1 run tellraw @s [{"text":"[NPC Editor] ","color":"aqua"},{"text":"NPC #$(npc_id) перемещён","color":"green"}]
+$execute if score localization l matches 2 run tellraw @s [{"text":"[NPC Editor] ","color":"aqua"},{"text":"NPC #$(npc_id) moved","color":"green"}]
 
 # Обновить список
 function npcs:npc/list
